@@ -58,22 +58,27 @@ const Hero: React.FC = () => {
           className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
         >
           <h1 className="font-roswell text-[18vw] md:text-[13vw] lg:text-[14vw] leading-none tracking-normal select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
-            {name.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                variants={letterVariants}
-                className="inline-block cursor-default"
-                style={{ 
-                  display: 'inline-block', 
-                  transformOrigin: 'bottom',
-                  willChange: 'transform'
-                }}
-                whileHover={{ scaleY: 2.5, color: '#ffffff' }}
-                transition={{ type: 'spring', stiffness: 350, damping: 12 }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
+            {name.split('').map((char, index) => {
+              if (char === ' ') {
+                return <span key={index}>&nbsp;</span>;
+              }
+              return (
+                <motion.span
+                  key={index}
+                  variants={letterVariants}
+                  className="inline-block cursor-default"
+                  style={{ 
+                    display: 'inline-block', 
+                    transformOrigin: 'bottom',
+                    willChange: 'transform'
+                  }}
+                  whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
           </h1>
         </motion.div>
 
@@ -85,7 +90,7 @@ const Hero: React.FC = () => {
           className="mt-4"
         >
           <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-300 font-bold opacity-80">
-            WELCOME TO MY WORKS
+            WELCOME TO MY WORLD
           </p>
         </motion.div>
       </div>

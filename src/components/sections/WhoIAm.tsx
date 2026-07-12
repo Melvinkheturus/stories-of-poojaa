@@ -45,22 +45,27 @@ const WhoIAm: React.FC = () => {
                 className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4 cursor-pointer"
                 data-cursor="about us"
               >
-                {"WHO AM I".split('').map((char, index) => (
-                  <motion.span
-                    key={index}
-                    className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
-                    style={{ 
-                      display: 'inline-block', 
-                      transformOrigin: 'bottom',
-                      willChange: 'transform'
-                    }}
-                    animate={{ scaleY: 1.7 }}
-                    whileHover={{ scaleY: 2.5, color: '#ffffff' }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 12 }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                ))}
+                {"WHO AM I".split('').map((char, index) => {
+                  if (char === ' ') {
+                    return <span key={index}>&nbsp;</span>;
+                  }
+                  return (
+                    <motion.span
+                      key={index}
+                      className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
+                      style={{ 
+                        display: 'inline-block', 
+                        transformOrigin: 'bottom',
+                        willChange: 'transform'
+                      }}
+                      animate={{ scaleY: 1.7 }}
+                      whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                      transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
               </motion.div>
             ) : (
               <motion.div
@@ -70,21 +75,26 @@ const WhoIAm: React.FC = () => {
                 transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
                 className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4"
               >
-                {"POOJAA G".split('').map((char, index) => (
-                  <motion.span
-                    key={index}
-                    className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
-                    style={{ 
-                      display: 'inline-block', 
-                      transformOrigin: 'bottom',
-                      willChange: 'transform'
-                    }}
-                    whileHover={{ scaleY: 2.5, color: '#ffffff' }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 12 }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                ))}
+                {"POOJAA G".split('').map((char, index) => {
+                  if (char === ' ') {
+                    return <span key={index}>&nbsp;</span>;
+                  }
+                  return (
+                    <motion.span
+                      key={index}
+                      className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
+                      style={{ 
+                        display: 'inline-block', 
+                        transformOrigin: 'bottom',
+                        willChange: 'transform'
+                      }}
+                      whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                      transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
               </motion.div>
             )}
           </AnimatePresence>
