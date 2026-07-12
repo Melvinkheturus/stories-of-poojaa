@@ -7,6 +7,8 @@ import Skills from '@/components/sections/Skills';
 import Blog from '@/components/sections/Blog';
 import Contact from '@/components/sections/Contact';
 
+export { metadata } from './metadata';
+
 export default function Home() {
   return (
     <>

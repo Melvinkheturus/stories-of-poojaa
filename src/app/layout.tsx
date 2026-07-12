@@ -1,13 +1,10 @@
 'use client';
 
-import type { Metadata } from "next";
-
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import React, { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
 import Navbar from '../components/Navbar';
-import { metadata } from './metadata';
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -46,7 +43,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="MyWebSite" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className="antialiased gradient-bg">
+      <body className={`${poppins.variable} ${inter.variable} antialiased gradient-bg`}>
         {loading ? <Loader /> : (
           <>
             <Navbar />

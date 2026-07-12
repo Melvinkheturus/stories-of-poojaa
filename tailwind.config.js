@@ -17,8 +17,8 @@ module.exports = {
         'accent': 'var(--accent-color)',
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

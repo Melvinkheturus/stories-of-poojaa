@@ -7,7 +7,7 @@ interface Skill {
 
 const SkillCard: React.FC<{ icon: string; title: string }> = ({ icon, title }) => {
   return (
-    <div className="p-3 rounded-full bg-white/50 mb-4">
+    <div className="p-3 rounded-full bg-white/50 mb-4" title={title}>
       <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 mb-4 text-lavender" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
       </svg>
