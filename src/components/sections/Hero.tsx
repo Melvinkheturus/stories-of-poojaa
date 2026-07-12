@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
 
 
       {/* Center Main Content */}
-      <div className="flex flex-col items-center justify-center text-center my-auto relative z-10">
+      <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-24 md:pt-36">
         <motion.div
           variants={containerVariants}
           initial="initial"
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           onAnimationComplete={() => setAnimationComplete(true)}
           className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
         >
-          <h1 className="font-roswell text-[22vw] md:text-[16vw] lg:text-[18vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
+          <h1 className="font-roswell text-[18vw] md:text-[13vw] lg:text-[14vw] leading-none tracking-normal select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
           animate="animate"
           className="mt-4"
         >
-          <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-400 opacity-60">
+          <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-300 font-bold opacity-80">
             WELCOME TO MY WORKS
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
           }}
           className="flex items-center gap-2 hover:opacity-100 transition-opacity cursor-pointer select-none group"
         >
-          <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-400 font-light">
+          <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-400 font-bold">
             Scroll to Explore
           </span>
           <svg
