@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuLinks = [
     { label: 'HOME', href: '#hero' },
@@ -111,14 +112,14 @@ const Menu: React.FC = () => {
             className="fixed inset-0 bg-[#050505] z-40 flex items-center justify-center p-8 overflow-hidden"
           >
             {/* Minimalist Logo on left */}
-            <div className="absolute top-10 left-10 hidden md:block">
-              <div className="relative w-16 h-16">
+            <div className="absolute top-8 left-8 hidden md:block">
+              <div className="relative w-20 h-20 md:w-28 md:h-28">
                 <Image 
                   src="/Logo.png" 
                   alt="Poojaa G Logo" 
                   fill
-                  sizes="64px"
-                  className="object-contain filter brightness-110 opacity-60 hover:opacity-100 transition-opacity"
+                  sizes="(max-width: 768px) 80px, 112px"
+                  className="object-contain filter brightness-110 opacity-75 hover:opacity-100 transition-opacity"
                 />
               </div>
             </div>
@@ -127,19 +128,35 @@ const Menu: React.FC = () => {
               variants={containerVariants}
               className="flex flex-col items-center gap-6 max-w-4xl text-center"
             >
-              {menuLinks.map((link) => (
-                <div key={link.label} className="overflow-hidden py-1">
-                  <motion.div variants={linkVariants}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleLinkClick(e, link.href)}
-                      className="font-heading text-6xl md:text-8xl tracking-wider text-stroke text-stroke-hover hover:text-white uppercase transition-all duration-300 block"
-                    >
-                      {link.label}
-                    </a>
-                  </motion.div>
-                </div>
-              ))}
+              {menuLinks.map((link, index) => {
+                const isHovered = hoveredIndex === index;
+                const isAnyHovered = hoveredIndex !== null;
+
+                let textClass = "font-heading text-6xl md:text-8xl tracking-wider uppercase transition-all duration-300 block";
+                if (isHovered) {
+                  textClass += " text-zinc-100 scale-[1.03]";
+                } else if (isAnyHovered) {
+                  textClass += " text-zinc-800 opacity-20 scale-[0.98]";
+                } else {
+                  textClass += " text-zinc-400";
+                }
+
+                return (
+                  <div key={link.label} className="overflow-hidden py-1">
+                    <motion.div variants={linkVariants}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleLinkClick(e, link.href)}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        className={textClass}
+                      >
+                        {link.label}
+                      </a>
+                    </motion.div>
+                  </div>
+                );
+              })}
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
