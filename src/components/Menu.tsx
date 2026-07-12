@@ -143,7 +143,7 @@ const Menu: React.FC = () => {
                 const isHovered = hoveredIndex === index;
                 const isAnyHovered = hoveredIndex !== null;
 
-                let textClass = "font-heading text-4xl md:text-6xl tracking-wider uppercase transition-all duration-300 block";
+                let textClass = "font-inter font-light tracking-[0.3em] text-2xl md:text-4xl uppercase transition-all duration-300 block py-2";
                 if (isHovered) {
                   textClass += " text-zinc-100 scale-[1.03]";
                 } else if (isAnyHovered) {
@@ -168,23 +168,6 @@ const Menu: React.FC = () => {
                   </div>
                 );
               })}
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.6 } }}
-                exit={{ opacity: 0 }}
-                className="mt-12 flex flex-col items-center gap-2"
-              >
-                <p className="font-serif-elegant italic text-zinc-500 text-lg">
-                  Chennai, India
-                </p>
-                <a
-                  href="mailto:poojaa.g@example.com"
-                  className="font-inter text-xs tracking-[0.2em] text-zinc-400 hover:text-zinc-100 uppercase transition-colors"
-                >
-                  poojaa.g@example.com
-                </a>
-              </motion.div>
             </motion.nav>
           </motion.div>
         )}
