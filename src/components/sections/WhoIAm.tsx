@@ -46,7 +46,7 @@ const WhoIAm: React.FC = () => {
                 {"WHO AM I".split('').map((char, index) => (
                   <motion.span
                     key={index}
-                    className="font-heading text-[12vw] leading-none text-zinc-100 font-extrabold"
+                    className="font-heading text-[12vw] leading-none text-zinc-100 font-light"
                     style={{ 
                       display: 'inline-block', 
                       transformOrigin: 'top',
@@ -71,7 +71,7 @@ const WhoIAm: React.FC = () => {
                 {"POOJAA G".split('').map((char, index) => (
                   <motion.span
                     key={index}
-                    className="font-heading text-[12vw] leading-none text-zinc-300 font-extrabold"
+                    className="font-heading text-[12vw] leading-none text-zinc-300 font-light"
                     style={{ 
                       display: 'inline-block', 
                       transformOrigin: 'top',

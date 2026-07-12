@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
           animate="animate"
           className="overflow-hidden py-4"
         >
-          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-tighter select-none font-bold text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
+          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}
