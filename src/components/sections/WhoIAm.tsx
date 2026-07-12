@@ -8,18 +8,18 @@ import { ScrollTextRise } from '@/components/ruixen/scroll-text-rise';
 const WhoIAm: React.FC = () => {
   const [isMorphed, setIsMorphed] = useState(false);
 
-  // Scroll targets for scroll animations
+  // Scroll targets for scroll animations (pinned target)
   const maskRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: maskScroll } = useScroll({
     target: maskRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end end"]
   });
 
-  // Scale the circular mask from 0.35 to 3.2
-  const circleScale = useTransform(maskScroll, [0.1, 0.75], [0.35, 3.2]);
+  // Scale the circular mask from 0.4 to 3.5 to completely cover the viewport
+  const circleScale = useTransform(maskScroll, [0.1, 0.8], [0.4, 3.5]);
   // Counter-scale the portrait image inside to create parallax depth
-  const imageScale = useTransform(maskScroll, [0.1, 0.75], [2.2, 1.0]);
-  const imageOpacity = useTransform(maskScroll, [0.1, 0.25, 0.75], [0, 1, 1]);
+  const imageScale = useTransform(maskScroll, [0.1, 0.8], [1.8, 1.0]);
+  const imageOpacity = useTransform(maskScroll, [0.0, 0.2, 0.8], [0, 1, 1]);
 
   const aboutText = "I believe that every organization is, at its core, a collection of stories. My journey began in the world of commerce, but I quickly realized my true calling wasn't just looking at the numbers—it was understanding the people behind them. Currently expanding my horizons through an MA in Human Resource Management in Chennai, I approach the corporate space with deep empathy and a fascination for human psychology and team dynamics. I strive to blend analytical thinking with deep empathy to create environments where people feel heard, valued, and empowered to do their best work.";
 
@@ -111,12 +111,12 @@ const WhoIAm: React.FC = () => {
         </div>
       </div>
 
-      {/* Part 3: Circular Clip Mask Reveal */}
-      <div ref={maskRef} className="relative h-[150vh] bg-[#050505] flex items-center justify-center overflow-hidden py-12">
+      {/* Part 3: Pinned Circular Clip Mask Reveal */}
+      <div ref={maskRef} className="relative h-[200vh] bg-[#050505] overflow-visible">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           <motion.div 
             style={{ scale: circleScale }}
-            className="relative w-[300px] h-[300px] md:w-[480px] md:h-[480px] rounded-full overflow-hidden border border-zinc-900 shadow-2xl flex items-center justify-center bg-zinc-950"
+            className="relative w-[40vh] h-[40vh] md:w-[60vh] md:h-[60vh] rounded-full overflow-hidden border border-zinc-900 shadow-2xl flex items-center justify-center bg-zinc-950"
           >
             <motion.div 
               style={{ scale: imageScale, opacity: imageOpacity }}
