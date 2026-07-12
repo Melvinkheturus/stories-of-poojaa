@@ -143,7 +143,7 @@ const Menu: React.FC = () => {
                 const isHovered = hoveredIndex === index;
                 const isAnyHovered = hoveredIndex !== null;
 
-                let textClass = "font-inter font-semibold tracking-[0.3em] text-3xl md:text-5xl uppercase transition-all duration-300 block py-2";
+                let textClass = "font-semibold tracking-[0.3em] text-3xl md:text-5xl uppercase transition-all duration-300 block py-2";
                 if (isHovered) {
                   textClass += " text-zinc-100 scale-[1.03]";
                 } else if (isAnyHovered) {
