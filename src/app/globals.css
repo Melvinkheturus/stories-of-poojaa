@@ -22,7 +22,7 @@ html {
   scroll-behavior: auto; /* Required for Lenis smooth scroll */
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   color: var(--text-primary);
   font-family: "Alegreya Sans", sans-serif;
   @apply antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Custom Selection */
