@@ -5,6 +5,8 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 
 const Hero: React.FC = () => {
+  const [animationComplete, setAnimationComplete] = React.useState(false);
+
   // Title letter container variants
   const containerVariants: Variants = {
     animate: {
@@ -52,9 +54,10 @@ const Hero: React.FC = () => {
           variants={containerVariants}
           initial="initial"
           animate="animate"
-          className="overflow-hidden py-4"
+          onAnimationComplete={() => setAnimationComplete(true)}
+          className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
         >
-          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
+          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}
