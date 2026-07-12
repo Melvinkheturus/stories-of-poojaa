@@ -48,8 +48,9 @@ const ScrollTextRise: FC<ScrollTextRiseProps> = ({
             )}
           >
             {words.map((word, i) => {
-              const start = i / words.length;
-              const end = start + 0.03;
+              const fraction = i / words.length;
+              const start = Math.min(0.97, fraction);
+              const end = Math.min(1.0, start + 0.03);
               return (
                 <RevealWord
                   key={`${i}-${word}`}
