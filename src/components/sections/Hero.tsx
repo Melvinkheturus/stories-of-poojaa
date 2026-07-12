@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           onAnimationComplete={() => setAnimationComplete(true)}
           className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
         >
-          <h1 className="font-roswell text-[15vw] md:text-[10vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
+          <h1 className="font-roswell text-[22vw] md:text-[16vw] lg:text-[18vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                 className="inline-block cursor-default"
                 style={{ 
                   display: 'inline-block', 
-                  transformOrigin: 'top',
+                  transformOrigin: 'bottom',
                   willChange: 'transform'
                 }}
                 whileHover={{ scaleY: 2.5, color: '#ffffff' }}

@@ -51,7 +51,7 @@ const WhoIAm: React.FC = () => {
                     className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
                     style={{ 
                       display: 'inline-block', 
-                      transformOrigin: 'top',
+                      transformOrigin: 'bottom',
                       willChange: 'transform'
                     }}
                     animate={{ scaleY: 1.7 }}
@@ -76,7 +76,7 @@ const WhoIAm: React.FC = () => {
                     className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
                     style={{ 
                       display: 'inline-block', 
-                      transformOrigin: 'top',
+                      transformOrigin: 'bottom',
                       willChange: 'transform'
                     }}
                     whileHover={{ scaleY: 2.5, color: '#ffffff' }}
