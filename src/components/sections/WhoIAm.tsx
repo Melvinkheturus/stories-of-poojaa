@@ -23,7 +23,7 @@ const WhoIAm: React.FC = () => {
     { clamp: true }
   );
 
-  const aboutText = "I believe that every organization is, at its core, a collection of stories. My journey began in the world of commerce, but I quickly realized my true calling wasn't just looking at the numbers—it was understanding the people behind them. Currently expanding my horizons through an MA in Human Resource Management in Chennai, I approach the corporate space with deep empathy and a fascination for human psychology and team dynamics. I strive to blend analytical thinking with deep empathy to create environments where people feel heard, valued, and empowered to do their best work.";
+  const aboutText = "I believe that every organization is, at its core, a collection of stories. My journey began in the world of commerce, but I quickly realized my true calling wasn't just looking at the numbers-it was understanding the people behind them. Currently expanding my horizons through an MA in Human Resource Management in Chennai, I approach the corporate space with deep empathy and a fascination for human psychology and team dynamics. I strive to blend analytical thinking with deep empathy to create environments where people feel heard, valued, and empowered to do their best work.";
 
   return (
     <section id="about" className="relative bg-[#050505] text-zinc-100 overflow-visible">
@@ -54,8 +54,8 @@ const WhoIAm: React.FC = () => {
                       <motion.span
                         key={index}
                         className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
-                        style={{ 
-                          display: 'inline-block', 
+                        style={{
+                          display: 'inline-block',
                           transformOrigin: 'bottom',
                           willChange: 'transform'
                         }}
@@ -84,8 +84,8 @@ const WhoIAm: React.FC = () => {
                       <motion.span
                         key={index}
                         className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
-                        style={{ 
-                          display: 'inline-block', 
+                        style={{
+                          display: 'inline-block',
                           transformOrigin: 'bottom',
                           willChange: 'transform'
                         }}
@@ -144,13 +144,13 @@ const WhoIAm: React.FC = () => {
       {/* Part 3: Pinned Circular Clip Mask Reveal */}
       <div ref={maskRef} className="relative h-[250vh] bg-[#050505] overflow-visible">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          <motion.div 
+          <motion.div
             style={{ clipPath }}
             className="relative w-full h-full"
           >
-            <Image 
-              src="/poojaa_portrait.png" 
-              alt="Poojaa G Portrait Reveal" 
+            <Image
+              src="/poojaa_portrait.png"
+              alt="Poojaa G Portrait Reveal"
               fill
               sizes="100vw"
               priority

@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 import Menu from '@/components/Menu';
 import CustomCursor from '@/components/CustomCursor';
+import GradualBlur from '@/components/ruixen/GradualBlur';
 
 const antonio = Antonio({
   subsets: ["latin"],
@@ -66,6 +67,15 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <GradualBlur
+          target="page"
+          position="bottom"
+          height="6rem"
+          strength={3}
+          divCount={6}
+          curve="bezier"
+          exponential={true}
+        />
       </body>
     </html>
   );
