@@ -2,9 +2,9 @@
 
 import { Antonio, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Lenis from 'lenis';
-import Menu from '../components/Menu';
+import Menu from '@/components/Menu';
 
 const antonio = Antonio({
   subsets: ["latin"],
@@ -30,8 +30,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -47,13 +45,7 @@ export default function RootLayout({
 
     requestAnimationFrame(raf);
 
-    // Minimal elegant loading delay for asset caching
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
     return () => {
-      clearTimeout(timer);
       lenis.destroy();
     };
   }, []);
@@ -68,29 +60,10 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${antonio.variable} ${cormorant.variable} ${inter.variable} antialiased bg-[#050505] text-zinc-100`}>
-        {loading ? (
-          <div className="fixed inset-0 bg-[#050505] z-50 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-4">
-              <span className="font-heading text-4xl tracking-[0.2em] animate-pulse">POOJA G</span>
-              <div className="w-12 h-[1px] bg-zinc-700 relative overflow-hidden">
-                <div className="absolute inset-y-0 left-0 w-1/2 bg-zinc-200 animate-[loading_1.5s_infinite_ease-in-out]"></div>
-              </div>
-            </div>
-            <style jsx>{`
-              @keyframes loading {
-                0% { left: -50%; }
-                100% { left: 100%; }
-              }
-            `}</style>
-          </div>
-        ) : (
-          <>
-            <Menu />
-            <main>
-              {children}
-            </main>
-          </>
-        )}
+        <Menu />
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
