@@ -15,11 +15,12 @@ const WhoIAm: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // Create a circular clip-path scaling from 18vh to 130vh to completely cover the screen
+  // Create a circular clip-path scaling from 18vh to 130vh to completely cover the screen, clamping so it stays full screen
   const clipPath = useTransform(
     maskScroll,
-    [0.0, 0.85],
-    ["circle(18vh at 50% 50%)", "circle(130vh at 50% 50%)"]
+    [0.0, 1.0],
+    ["circle(18vh at 50% 50%)", "circle(130vh at 50% 50%)"],
+    { clamp: true }
   );
 
   const aboutText = "I believe that every organization is, at its core, a collection of stories. My journey began in the world of commerce, but I quickly realized my true calling wasn't just looking at the numbers—it was understanding the people behind them. Currently expanding my horizons through an MA in Human Resource Management in Chennai, I approach the corporate space with deep empathy and a fascination for human psychology and team dynamics. I strive to blend analytical thinking with deep empathy to create environments where people feel heard, valued, and empowered to do their best work.";
