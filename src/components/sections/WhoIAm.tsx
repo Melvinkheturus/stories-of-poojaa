@@ -28,88 +28,119 @@ const WhoIAm: React.FC = () => {
   return (
     <section id="about" className="relative bg-[#050505] text-zinc-100 overflow-visible">
       {/* Part 1: Interactive Who Am I / Poojaa G Morph screen */}
-      <div className="min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 select-none relative z-10 py-24">
-        <span className="font-inter text-[10px] md:text-xs tracking-[0.4em] uppercase text-zinc-500 mb-8 block opacity-60">
-          A Lil about me
-        </span>
-        
-        <div className="w-full max-w-7xl flex justify-center items-center overflow-visible py-12">
-          <AnimatePresence mode="wait">
-            {!isMorphed ? (
-              <motion.div
-                key="who-am-i"
-                initial={{ opacity: 1 }}
-                exit={{ opacity: 0, y: -20, scaleY: 0.5 }}
-                transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
-                onClick={() => setIsMorphed(true)}
-                className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4 cursor-pointer"
-                data-cursor="about us"
-              >
-                {"WHO AM I".split('').map((char, index) => {
-                  if (char === ' ') {
-                    return <span key={index}>&nbsp;</span>;
-                  }
-                  return (
-                    <motion.span
-                      key={index}
-                      className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
-                      style={{ 
-                        display: 'inline-block', 
-                        transformOrigin: 'bottom',
-                        willChange: 'transform'
-                      }}
-                      animate={{ scaleY: 1.7 }}
-                      whileHover={{ scaleY: 1.35, color: '#ffffff' }}
-                      transition={{ type: 'spring', stiffness: 350, damping: 15 }}
-                    >
-                      {char}
-                    </motion.span>
-                  );
-                })}
-              </motion.div>
-            ) : (
-              <motion.div
-                key="poojaa-g"
-                initial={{ opacity: 0, y: 20, scaleY: 0.5 }}
-                animate={{ opacity: 1, y: 0, scaleY: 1.7 }}
-                transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
-                className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4"
-              >
-                {"POOJAA G".split('').map((char, index) => {
-                  if (char === ' ') {
-                    return <span key={index}>&nbsp;</span>;
-                  }
-                  return (
-                    <motion.span
-                      key={index}
-                      className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
-                      style={{ 
-                        display: 'inline-block', 
-                        transformOrigin: 'bottom',
-                        willChange: 'transform'
-                      }}
-                      whileHover={{ scaleY: 1.35, color: '#ffffff' }}
-                      transition={{ type: 'spring', stiffness: 350, damping: 15 }}
-                    >
-                      {char}
-                    </motion.span>
-                  );
-                })}
-              </motion.div>
-            )}
-          </AnimatePresence>
+      <div className="min-h-screen w-full flex flex-col justify-between px-6 py-12 md:px-16 lg:px-24 select-none relative z-10">
+        {/* Empty top block for spacing */}
+        <div />
+
+        {/* Center content block */}
+        <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-24 md:pt-36">
+          <div className="w-full max-w-7xl flex justify-center items-center overflow-visible py-4">
+            <AnimatePresence mode="wait">
+              {!isMorphed ? (
+                <motion.div
+                  key="who-am-i"
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0, y: -20, scaleY: 0.5 }}
+                  transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
+                  onClick={() => setIsMorphed(true)}
+                  className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4 cursor-pointer"
+                  data-cursor="about us"
+                >
+                  {"WHO AM I".split('').map((char, index) => {
+                    if (char === ' ') {
+                      return <span key={index}>&nbsp;</span>;
+                    }
+                    return (
+                      <motion.span
+                        key={index}
+                        className="font-roswell text-[12vw] leading-none text-zinc-100 font-light"
+                        style={{ 
+                          display: 'inline-block', 
+                          transformOrigin: 'bottom',
+                          willChange: 'transform'
+                        }}
+                        animate={{ scaleY: 1.7 }}
+                        whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                        transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                      >
+                        {char}
+                      </motion.span>
+                    );
+                  })}
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="poojaa-g"
+                  initial={{ opacity: 0, y: 20, scaleY: 0.5 }}
+                  animate={{ opacity: 1, y: 0, scaleY: 1.7 }}
+                  transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
+                  className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4"
+                >
+                  {"POOJAA G".split('').map((char, index) => {
+                    if (char === ' ') {
+                      return <span key={index}>&nbsp;</span>;
+                    }
+                    return (
+                      <motion.span
+                        key={index}
+                        className="font-roswell text-[12vw] leading-none text-zinc-300 font-light"
+                        style={{ 
+                          display: 'inline-block', 
+                          transformOrigin: 'bottom',
+                          willChange: 'transform'
+                        }}
+                        whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                        transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                      >
+                        {char}
+                      </motion.span>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Centered subtext moved from top and made bold */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8, transition: { delay: 0.6 } }}
+            className="mt-4"
+          >
+            <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-300 font-bold">
+              A Lil about me
+            </p>
+          </motion.div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.5 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="font-inter text-[10px] tracking-[0.2em] uppercase text-zinc-500 flex items-center gap-2 mt-12 animate-pulse"
-        >
-          <span>Scroll to explore</span>
-          <span>↓</span>
-        </motion.div>
+        {/* Bottom Footer Info matching Hero */}
+        <div className="w-full mt-auto relative z-10 flex justify-start pb-4">
+          <motion.a
+            href="#about-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6, transition: { delay: 1.2, duration: 0.8 } }}
+            whileHover={{ opacity: 1 }}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('[data-scroll-text-rise]')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center gap-2 hover:opacity-100 transition-opacity cursor-pointer select-none group"
+          >
+            <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-400 font-bold">
+              Scroll to Explore
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-3.5 h-3.5 text-zinc-400 group-hover:translate-y-1 transition-transform duration-300"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </motion.a>
+        </div>
       </div>
 
       {/* Part 2: Scroll Text Rise Block */}
