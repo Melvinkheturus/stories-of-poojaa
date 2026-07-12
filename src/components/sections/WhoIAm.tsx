@@ -33,7 +33,7 @@ const WhoIAm: React.FC = () => {
         <div />
 
         {/* Center content block */}
-        <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-24 md:pt-36">
+        <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-20 md:pt-28">
           <div className="w-full max-w-7xl flex justify-center items-center overflow-visible py-4">
             <AnimatePresence mode="wait">
               {!isMorphed ? (
@@ -59,8 +59,8 @@ const WhoIAm: React.FC = () => {
                           transformOrigin: 'bottom',
                           willChange: 'transform'
                         }}
-                        animate={{ scaleY: 1.0 }}
-                        whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                        animate={{ scaleY: 1.7 }}
+                        whileHover={{ scaleY: 2.2, color: '#ffffff' }}
                         transition={{ type: 'spring', stiffness: 350, damping: 15 }}
                       >
                         {char}
@@ -72,7 +72,7 @@ const WhoIAm: React.FC = () => {
                 <motion.div
                   key="poojaa-g"
                   initial={{ opacity: 0, y: 20, scaleY: 0.5 }}
-                  animate={{ opacity: 1, y: 0, scaleY: 1.0 }}
+                  animate={{ opacity: 1, y: 0, scaleY: 1.7 }}
                   transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
                   className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4"
                 >
@@ -89,7 +89,7 @@ const WhoIAm: React.FC = () => {
                           transformOrigin: 'bottom',
                           willChange: 'transform'
                         }}
-                        whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                        whileHover={{ scaleY: 2.2, color: '#ffffff' }}
                         transition={{ type: 'spring', stiffness: 350, damping: 15 }}
                       >
                         {char}
@@ -105,7 +105,7 @@ const WhoIAm: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8, transition: { delay: 0.6 } }}
-            className="mt-4"
+            className="mt-1"
           >
             <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-300 font-bold">
               A Lil about me

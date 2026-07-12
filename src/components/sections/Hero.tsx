@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
     animate: {
       y: 0,
       opacity: 1,
-      scaleY: 1,
+      scaleY: 1.7,
       transition: { duration: 1, ease: [0.6, 0.01, 0.05, 0.95] },
     },
   };
@@ -49,13 +49,13 @@ const Hero: React.FC = () => {
 
 
       {/* Center Main Content */}
-      <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-24 md:pt-36">
+      <div className="flex flex-col items-center justify-center text-center my-auto relative z-10 pt-20 md:pt-28">
         <motion.div
           variants={containerVariants}
           initial="initial"
           animate="animate"
           onAnimationComplete={() => setAnimationComplete(true)}
-          className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
+          className={animationComplete ? "overflow-visible py-20" : "overflow-hidden py-20"}
         >
           <h1 className="font-roswell text-[18vw] md:text-[13vw] lg:text-[14vw] leading-none tracking-normal select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => {
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
                     transformOrigin: 'bottom',
                     willChange: 'transform'
                   }}
-                  whileHover={{ scaleY: 1.35, color: '#ffffff' }}
+                  whileHover={{ scaleY: 2.2, color: '#ffffff' }}
                   transition={{ type: 'spring', stiffness: 350, damping: 15 }}
                 >
                   {char}
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
           variants={textRevealVariants}
           initial="initial"
           animate="animate"
-          className="mt-4"
+          className="mt-1"
         >
           <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-300 font-bold opacity-80">
             WELCOME TO MY WORLD
