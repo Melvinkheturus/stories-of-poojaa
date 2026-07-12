@@ -77,48 +77,35 @@ const Hero: React.FC = () => {
           </h1>
         </motion.div>
 
-        {/* Cinematic Tagline */}
+        {/* Welcome to my works subtext */}
         <motion.div
           variants={textRevealVariants}
           initial="initial"
           animate="animate"
-          className="mt-6 md:mt-8 space-y-4"
+          className="mt-4"
         >
-          <p className="font-serif-elegant italic text-zinc-400 text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed">
-            “Seeking stories, organizing chaos, and championing the human element.”
+          <p className="font-inter text-xs tracking-[0.4em] uppercase text-zinc-400 opacity-60">
+            WELCOME TO MY WORKS
           </p>
-          <div className="flex items-center justify-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-ping"></span>
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-500">
-              Curator of human potential
-            </span>
-          </div>
         </motion.div>
       </div>
 
       {/* Bottom Footer Info */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full mt-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 1, duration: 0.6 } }}
-          className="text-zinc-500 font-inter text-xs tracking-wider text-center md:text-left"
-        >
-          CURRENTLY GROWING IN CHENNAI, IN
-        </motion.div>
-
-        {/* Scroll Indicator */}
+      <div className="w-full mt-auto relative z-10 flex justify-start pb-4">
+        {/* Scroll Indicator at bottom left */}
         <motion.a
           href="#about"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6, y: [0, 8, 0], transition: { delay: 1.2, repeat: Infinity, duration: 2 } }}
+          animate={{ opacity: 0.6, transition: { delay: 1.2, duration: 0.8 } }}
+          whileHover={{ opacity: 1 }}
           onClick={(e) => {
             e.preventDefault();
             document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"
+          className="flex items-center gap-2 hover:opacity-100 transition-opacity cursor-pointer select-none group"
         >
-          <span className="font-inter text-[10px] tracking-[0.2em] uppercase text-zinc-400">
-            SCROLL TO EXPLORE
+          <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-400 font-light">
+            Scroll to Explore
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -126,19 +113,11 @@ const Hero: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-4 h-4 text-zinc-400"
+            className="w-3.5 h-3.5 text-zinc-400 group-hover:translate-y-1 transition-transform duration-300"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </motion.a>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 1, duration: 0.6 } }}
-          className="text-zinc-500 font-inter text-xs tracking-wider text-center md:text-right"
-        >
-          EST. 2026 / PERSONAL IDENTITY
-        </motion.div>
       </div>
     </section>
   );
