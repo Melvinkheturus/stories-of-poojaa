@@ -17,7 +17,8 @@ module.exports = {
         'accent': 'var(--accent-color)',
       },
       fontFamily: {
-        poppins: ['var(--font-poppins)', 'sans-serif'],
+        antonio: ['var(--font-antonio)', 'sans-serif'],
+        cormorant: ['var(--font-cormorant)', 'serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
       },
       backgroundImage: {

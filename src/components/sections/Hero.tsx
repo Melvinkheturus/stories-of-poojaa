@@ -1,92 +1,141 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  // Title letter container variants
+  const containerVariants: Variants = {
+    animate: {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  // Letter animations
+  const letterVariants: Variants = {
+    initial: { y: 150, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1, ease: [0.6, 0.01, -0.05, 0.95] },
+    },
+  };
+
+  const textRevealVariants: Variants = {
+    initial: { y: 30, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.6, duration: 0.8, ease: 'easeOut' },
+    },
+  };
+
+  const name = "POOJAA G";
+
   return (
-<section 
-      id="hero" 
-      className="relative section-container pt-32 pb-16 bg-cover bg-center"
-      style={{ backgroundImage: `url('/mesh-gradient.png')` }}
+    <section
+      id="hero"
+      className="relative min-h-screen bg-[#050505] flex flex-col justify-between px-6 py-12 md:px-16 overflow-hidden"
     >
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="space-y-6">
-          <motion.h1
-            className="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-2 gradient-text"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-zinc-900/10 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Top Bar Header */}
+      <div className="flex justify-between items-center w-full relative z-10">
+        <motion.span 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          className="font-heading text-lg tracking-[0.3em] text-zinc-400"
+        >
+          P G
+        </motion.span>
+      </div>
+
+      {/* Center Main Content */}
+      <div className="flex flex-col items-center justify-center text-center my-auto relative z-10">
+        <motion.div
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          className="overflow-hidden py-4"
+        >
+          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-tighter select-none font-bold text-zinc-100 flex justify-center gap-[0.02em]">
+            {name.split('').map((char, index) => (
+              <motion.span
+                key={index}
+                variants={letterVariants}
+                className="inline-block"
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </motion.span>
+            ))}
+          </h1>
+        </motion.div>
+
+        {/* Cinematic Tagline */}
+        <motion.div
+          variants={textRevealVariants}
+          initial="initial"
+          animate="animate"
+          className="mt-6 md:mt-8 space-y-4"
+        >
+          <p className="font-serif-elegant italic text-zinc-400 text-xl md:text-3xl max-w-2xl mx-auto leading-relaxed">
+            “Seeking stories, organizing chaos, and championing the human element.”
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-ping"></span>
+            <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-500">
+              Curator of human potential
+            </span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom Footer Info */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full mt-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 1, duration: 0.6 } }}
+          className="text-zinc-500 font-inter text-xs tracking-wider text-center md:text-left"
+        >
+          CURRENTLY GROWING IN CHENNAI, IN
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6, y: [0, 8, 0], transition: { delay: 1.2, repeat: Infinity, duration: 2 } }}
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"
+        >
+          <span className="font-inter text-[10px] tracking-[0.2em] uppercase text-zinc-400">
+            SCROLL TO EXPLORE
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4 text-zinc-400"
           >
-            <motion.span
-              className="inline-block"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Poojaa G
-            </motion.span>
-          </motion.h1>
-          <style jsx>{`
-            .gradient-text {
-              background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
-              background-size: 200% 200%;
-              -webkit-background-clip: text;
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </motion.a>
 
-              animation: gradient-animation 5s ease infinite;
-            }
-
-            @keyframes gradient-animation {
-              0% { background-position: 0% 50%; }
-              50% { background-position: 100% 50%; }
-              100% { background-position: 0% 50%; }
-            }
-          `}</style>
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-4">
-            HR Professional in the Making
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-            “Helping businesses build workplaces where people thrive and performance scales.”
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a
-              href="/resume.pdf"
-              download
-              className="btn-primary flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-              Download Resume
-            </a>
-            <a
-              href="#contact"
-              className="btn-secondary flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-              Let&apos;s Connect
-            </a>
-          </div>
-          <p className="text-md text-gray-500 mt-4">
-            Open to HR internships and trainee opportunities
-          </p>
-          <div className="flex justify-center gap-4 mt-4">
-            <a href="https://www.linkedin.com/in/poojaa-g" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-lavender transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="mailto:poojaa.g@example.com" className="text-gray-600 hover:text-lavender transition-colors duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.727v15.439h24v-15.439l-12 9.727z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <span className="pill-badge"><span className="text-green-500 mr-2">✅</span>Talent Acquisition</span>
-          <span className="pill-badge"><span className="text-green-500 mr-2">✅</span>People Engagement</span>
-          <span className="pill-badge"><span className="text-green-500 mr-2">✅</span>Performance Growth</span>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 1, duration: 0.6 } }}
+          className="text-zinc-500 font-inter text-xs tracking-wider text-center md:text-right"
+        >
+          EST. 2026 / PERSONAL IDENTITY
+        </motion.div>
       </div>
     </section>
   );

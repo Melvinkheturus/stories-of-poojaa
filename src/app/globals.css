@@ -3,37 +3,102 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #E6E6FA;
-  --secondary-color: #F8C8DC;
-  --accent-color: #98FF98;
+  --bg-primary: #050505;
+  --bg-secondary: #0b0b0b;
+  --accent: #E6E6FA; /* Elegant lavender accent */
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Required for Lenis smooth scroll */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
 }
 
 body {
-  @apply font-poppins text-gray-800;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  @apply font-inter antialiased;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-inter text-gray-900;
+/* Custom Selection */
+::selection {
+  background-color: var(--accent);
+  color: #000;
 }
 
-.gradient-bg {
-  background-image: url('/mesh-gradient.png');
-  background-repeat: repeat;
-  background-size: 200px;
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.btn-primary {
-  @apply bg-primary text-white px-6 py-3 rounded-full shadow-lg hover:bg-accent transition duration-300;
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
 }
 
-.btn-secondary {
-  @apply bg-secondary text-gray-800 px-6 py-3 rounded-full shadow-lg hover:bg-accent transition duration-300;
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
 }
 
-.section-container {
-  @apply py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto;
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Typography styles */
+.font-heading {
+  @apply font-antonio;
+}
+
+.font-serif-elegant {
+  @apply font-cormorant;
+}
+
+/* Custom premium classes */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+
+.text-stroke-hover:hover {
+  -webkit-text-stroke: 1px transparent;
+  color: var(--text-primary);
+}
+
+.clip-path-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.pill-badge-premium {
+  @apply px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-950/40 text-xs tracking-wider uppercase text-zinc-400 backdrop-blur-sm transition-all duration-300 hover:border-zinc-700 hover:text-zinc-200;
+}
+
+/* Lenis Custom Integration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
