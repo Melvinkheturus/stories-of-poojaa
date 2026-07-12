@@ -16,10 +16,11 @@ const Hero: React.FC = () => {
 
   // Letter animations
   const letterVariants: Variants = {
-    initial: { y: 150, opacity: 0 },
+    initial: { y: 150, opacity: 0, scaleY: 1 },
     animate: {
       y: 0,
       opacity: 1,
+      scaleY: 1.7,
       transition: { duration: 1, ease: [0.6, 0.01, 0.05, 0.95] },
     },
   };
@@ -53,12 +54,19 @@ const Hero: React.FC = () => {
           animate="animate"
           className="overflow-hidden py-4"
         >
-          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-tighter select-none font-bold text-zinc-100 flex justify-center gap-[0.02em]">
+          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-[0.8] tracking-tighter select-none font-bold text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}
                 variants={letterVariants}
-                className="inline-block"
+                className="inline-block cursor-default"
+                style={{ 
+                  display: 'inline-block', 
+                  transformOrigin: 'top',
+                  willChange: 'transform'
+                }}
+                whileHover={{ scaleY: 2.5, color: '#ffffff' }}
+                transition={{ type: 'spring', stiffness: 350, damping: 12 }}
               >
                 {char === ' ' ? '\u00A0' : char}
               </motion.span>

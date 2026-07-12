@@ -102,6 +102,31 @@ const WhoIAm: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Giant full-width text with hover stretch */}
+      <div className="w-full mt-28 border-t border-zinc-900/80 pt-16 flex flex-col items-center select-none overflow-visible">
+        <span className="font-inter text-[10px] md:text-xs tracking-[0.4em] uppercase text-zinc-500 mb-8 block opacity-65">
+          A Lil about me
+        </span>
+        <div className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-6">
+          {"WHO I AM".split('').map((char, charIndex) => (
+            <motion.span
+              key={charIndex}
+              className="font-heading text-[12vw] leading-none text-zinc-300 cursor-default select-none font-extrabold"
+              style={{ 
+                display: 'inline-block', 
+                transformOrigin: 'top',
+                willChange: 'transform'
+              }}
+              animate={{ scaleY: 1.7 }}
+              whileHover={{ scaleY: 2.5, color: '#ffffff' }}
+              transition={{ type: 'spring', stiffness: 350, damping: 12 }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </motion.span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
