@@ -59,7 +59,7 @@ const WhoIAm: React.FC = () => {
                           transformOrigin: 'bottom',
                           willChange: 'transform'
                         }}
-                        animate={{ scaleY: 1.7 }}
+                        animate={{ scaleY: 1.0 }}
                         whileHover={{ scaleY: 1.35, color: '#ffffff' }}
                         transition={{ type: 'spring', stiffness: 350, damping: 15 }}
                       >
@@ -72,7 +72,7 @@ const WhoIAm: React.FC = () => {
                 <motion.div
                   key="poojaa-g"
                   initial={{ opacity: 0, y: 20, scaleY: 0.5 }}
-                  animate={{ opacity: 1, y: 0, scaleY: 1.7 }}
+                  animate={{ opacity: 1, y: 0, scaleY: 1.0 }}
                   transition={{ duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
                   className="flex justify-center gap-1.5 md:gap-3 overflow-visible py-4"
                 >
@@ -126,19 +126,6 @@ const WhoIAm: React.FC = () => {
             }}
             className="flex items-center gap-2 hover:opacity-100 transition-opacity cursor-pointer select-none group"
           >
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-zinc-400 font-bold">
-              Scroll to Explore
-            </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-3.5 h-3.5 text-zinc-400 group-hover:translate-y-1 transition-transform duration-300"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
           </motion.a>
         </div>
       </div>

@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
     animate: {
       y: 0,
       opacity: 1,
-      scaleY: 1.7,
+      scaleY: 1,
       transition: { duration: 1, ease: [0.6, 0.01, 0.05, 0.95] },
     },
   };
