@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           onAnimationComplete={() => setAnimationComplete(true)}
           className={animationComplete ? "overflow-visible py-4" : "overflow-hidden py-4"}
         >
-          <h1 className="font-heading text-[15vw] md:text-[10vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
+          <h1 className="font-roswell text-[15vw] md:text-[10vw] leading-none tracking-wider select-none font-light text-zinc-100 flex justify-center gap-[0.02em] overflow-visible py-8">
             {name.split('').map((char, index) => (
               <motion.span
                 key={index}

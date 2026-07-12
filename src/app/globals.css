@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'Roswell Three ITC';
+  src: url('/Roswell%20Three%20ITC%20Regular/Roswell%20Three%20ITC%20Regular/Roswell%20Three%20ITC%20Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -64,8 +72,12 @@ body {
 }
 
 .font-serif-elegant {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Alegreya Sans", sans-serif;
   @apply font-light italic;
+}
+
+.font-roswell {
+  font-family: 'Roswell Three ITC', sans-serif;
 }
 
 /* Custom premium classes */
