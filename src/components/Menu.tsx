@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +66,7 @@ const Menu: React.FC = () => {
 
   const linkVariants: Variants = {
     initial: { y: 80, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.6, 0.05, -0.01, 0.9] } },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.6, 0.05, 0.01, 0.9] } },
     exit: { y: 50, opacity: 0, transition: { duration: 0.4 } },
   };
 
@@ -111,7 +112,15 @@ const Menu: React.FC = () => {
           >
             {/* Minimalist Logo on left */}
             <div className="absolute top-10 left-10 hidden md:block">
-              <span className="font-heading text-xl tracking-[0.3em] text-zinc-500">P G</span>
+              <div className="relative w-10 h-10">
+                <Image 
+                  src="/Logo.png" 
+                  alt="Poojaa G Logo" 
+                  fill
+                  sizes="40px"
+                  className="object-contain filter brightness-110 opacity-60 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
 
             <motion.nav

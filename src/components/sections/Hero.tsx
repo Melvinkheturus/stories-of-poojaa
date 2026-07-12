@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   // Title letter container variants
@@ -19,7 +20,7 @@ const Hero: React.FC = () => {
     animate: {
       y: 0,
       opacity: 1,
-      transition: { duration: 1, ease: [0.6, 0.01, -0.05, 0.95] },
+      transition: { duration: 1, ease: [0.6, 0.01, 0.05, 0.95] },
     },
   };
 
@@ -44,13 +45,20 @@ const Hero: React.FC = () => {
 
       {/* Top Bar Header */}
       <div className="flex justify-between items-center w-full relative z-10">
-        <motion.span 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.5 } }}
-          className="font-heading text-lg tracking-[0.3em] text-zinc-400"
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative w-10 h-10"
         >
-          P G
-        </motion.span>
+          <Image 
+            src="/Logo.png" 
+            alt="Poojaa G Logo" 
+            fill
+            sizes="40px"
+            className="object-contain filter brightness-110"
+          />
+        </motion.div>
       </div>
 
       {/* Center Main Content */}
