@@ -15,11 +15,12 @@ const WhoIAm: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // Scale the circular mask from 0.45 to 6.5 to completely cover the viewport
-  const circleScale = useTransform(maskScroll, [0.0, 0.85], [0.45, 6.5]);
-  // Counter-scale the portrait image inside to create parallax depth
-  const imageScale = useTransform(maskScroll, [0.0, 0.85], [1.8, 1.0]);
-  const imageOpacity = useTransform(maskScroll, [0.0, 0.15, 0.85], [0, 1, 1]);
+  // Create a circular clip-path scaling from 18vh to 130vh to completely cover the screen
+  const clipPath = useTransform(
+    maskScroll,
+    [0.0, 0.85],
+    ["circle(18vh at 50% 50%)", "circle(130vh at 50% 50%)"]
+  );
 
   const aboutText = "I believe that every organization is, at its core, a collection of stories. My journey began in the world of commerce, but I quickly realized my true calling wasn't just looking at the numbers—it was understanding the people behind them. Currently expanding my horizons through an MA in Human Resource Management in Chennai, I approach the corporate space with deep empathy and a fascination for human psychology and team dynamics. I strive to blend analytical thinking with deep empathy to create environments where people feel heard, valued, and empowered to do their best work.";
 
@@ -115,21 +116,17 @@ const WhoIAm: React.FC = () => {
       <div ref={maskRef} className="relative h-[250vh] bg-[#050505] overflow-visible">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           <motion.div 
-            style={{ scale: circleScale }}
-            className="relative w-[40vh] h-[40vh] md:w-[60vh] md:h-[60vh] rounded-full overflow-hidden border border-zinc-900 shadow-2xl flex items-center justify-center bg-zinc-950"
+            style={{ clipPath }}
+            className="relative w-full h-full"
           >
-            <motion.div 
-              style={{ scale: imageScale, opacity: imageOpacity }}
-              className="relative w-full h-full"
-            >
-              <Image 
-                src="/poojaa_portrait.png" 
-                alt="Poojaa G Portrait Reveal" 
-                fill
-                sizes="100vw"
-                className="object-cover filter grayscale contrast-125 brightness-90 hover:grayscale-0 transition-all duration-700"
-              />
-            </motion.div>
+            <Image 
+              src="/poojaa_portrait.png" 
+              alt="Poojaa G Portrait Reveal" 
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover brightness-95"
+            />
           </motion.div>
         </div>
       </div>
