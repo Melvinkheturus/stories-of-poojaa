@@ -73,33 +73,56 @@ const Menu: React.FC = () => {
 
   return (
     <>
-      {/* Floating Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-8 right-8 z-50 flex items-center gap-4 bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800 text-zinc-100 px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 shadow-xl"
-        aria-label="Toggle Menu"
-      >
-        <span className="font-heading tracking-[0.2em] text-xs uppercase pt-0.5">
-          {isOpen ? 'CLOSE' : 'MENU'}
-        </span>
-        <div className="flex flex-col gap-1.5 justify-center items-center w-5 h-5">
-          <span
-            className={`w-5 h-[1px] bg-zinc-100 transition-all duration-300 ${
-              isOpen ? 'rotate-45 translate-y-[7px]' : ''
-            }`}
-          />
-          <span
-            className={`w-5 h-[1px] bg-zinc-100 transition-all duration-300 ${
-              isOpen ? 'opacity-0' : ''
-            }`}
-          />
-          <span
-            className={`w-5 h-[1px] bg-zinc-100 transition-all duration-300 ${
-              isOpen ? '-rotate-45 -translate-y-[7px]' : ''
-            }`}
-          />
-        </div>
-      </button>
+      {/* Global Fixed Header aligning logo and toggle button */}
+      <header className="fixed top-0 inset-x-0 h-24 z-50 px-6 md:px-16 flex items-center justify-between pointer-events-none">
+        {/* Logo (left) */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="pointer-events-auto relative w-12 h-12 md:w-16 md:h-16"
+        >
+          <a 
+            href="#hero" 
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpen(false);
+              document.querySelector('#hero')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            aria-label="Home"
+            className="block w-full h-full"
+          >
+            <Image 
+              src="/Logo.png" 
+              alt="Poojaa G Logo" 
+              fill
+              sizes="(max-width: 768px) 48px, 64px"
+              priority
+              className="object-contain filter brightness-110 opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </a>
+        </motion.div>
+
+        {/* Floating Toggle Button (right) */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="pointer-events-auto flex items-center justify-center w-12 h-12 rounded-full bg-zinc-950/40 hover:bg-zinc-900/60 border border-zinc-850 text-zinc-100 backdrop-blur-md transition-all duration-300 shadow-xl group"
+          aria-label="Toggle Menu"
+        >
+          <div className="flex flex-col gap-1.5 justify-center items-end w-5 h-5">
+            <span
+              className={`h-[1.5px] bg-zinc-100 transition-all duration-300 ${
+                isOpen ? 'w-5 rotate-45 translate-y-[4.5px]' : 'w-5'
+              }`}
+            />
+            <span
+              className={`h-[1.5px] bg-zinc-100 transition-all duration-300 ${
+                isOpen ? 'w-5 -rotate-45 -translate-y-[4.5px]' : 'w-3.5 group-hover:w-5'
+              }`}
+            />
+          </div>
+        </button>
+      </header>
 
       {/* Fullscreen Overlay Menu */}
       <AnimatePresence>
@@ -111,28 +134,16 @@ const Menu: React.FC = () => {
             variants={menuVariants}
             className="fixed inset-0 bg-[#050505] z-40 flex items-center justify-center p-8 overflow-hidden"
           >
-            {/* Minimalist Logo on left */}
-            <div className="absolute top-8 left-8 hidden md:block">
-              <div className="relative w-20 h-20 md:w-28 md:h-28">
-                <Image 
-                  src="/Logo.png" 
-                  alt="Poojaa G Logo" 
-                  fill
-                  sizes="(max-width: 768px) 80px, 112px"
-                  className="object-contain filter brightness-110 opacity-75 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            </div>
 
             <motion.nav
               variants={containerVariants}
-              className="flex flex-col items-center gap-6 max-w-4xl text-center"
+              className="flex flex-col items-center gap-4 md:gap-6 max-w-4xl text-center"
             >
               {menuLinks.map((link, index) => {
                 const isHovered = hoveredIndex === index;
                 const isAnyHovered = hoveredIndex !== null;
 
-                let textClass = "font-heading text-6xl md:text-8xl tracking-wider uppercase transition-all duration-300 block";
+                let textClass = "font-heading text-4xl md:text-6xl tracking-wider uppercase transition-all duration-300 block";
                 if (isHovered) {
                   textClass += " text-zinc-100 scale-[1.03]";
                 } else if (isAnyHovered) {

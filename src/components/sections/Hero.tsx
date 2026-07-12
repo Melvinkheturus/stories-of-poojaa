@@ -43,24 +43,7 @@ const Hero: React.FC = () => {
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-zinc-900/10 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Top Bar Header */}
-      <div className="flex justify-between items-center w-full relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative w-20 h-20 md:w-28 md:h-28"
-        >
-          <Image 
-            src="/Logo.png" 
-            alt="Poojaa G Logo" 
-            fill
-            sizes="(max-width: 768px) 80px, 112px"
-            priority
-            className="object-contain filter brightness-110"
-          />
-        </motion.div>
-      </div>
+
 
       {/* Center Main Content */}
       <div className="flex flex-col items-center justify-center text-center my-auto relative z-10">
