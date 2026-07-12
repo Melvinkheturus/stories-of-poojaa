@@ -86,7 +86,10 @@ const Gallery: React.FC = () => {
               className="group space-y-4"
             >
               {/* Image Frame Wrapper */}
-              <div className="relative w-full aspect-[4/5] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl p-2">
+              <div 
+                data-cursor="view" 
+                className="relative w-full aspect-[4/5] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl p-2"
+              >
                 <div className="relative w-full h-full rounded-xl overflow-hidden">
                   <Image
                     src={item.src}

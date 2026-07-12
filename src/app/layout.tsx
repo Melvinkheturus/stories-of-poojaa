@@ -5,6 +5,7 @@ import "./globals.css";
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 import Menu from '@/components/Menu';
+import CustomCursor from '@/components/CustomCursor';
 
 const antonio = Antonio({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${antonio.variable} ${cormorant.variable} ${inter.variable} antialiased bg-[#050505] text-zinc-100`}>
+        <CustomCursor />
         <Menu />
         <main>
           {children}

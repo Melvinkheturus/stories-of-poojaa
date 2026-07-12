@@ -81,6 +81,7 @@ const WhoIAm: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
+            data-cursor="about me"
             className="relative w-full max-w-sm aspect-[3/4] bg-zinc-900 border border-zinc-800 p-3 rounded-2xl shadow-2xl group overflow-hidden"
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden">
