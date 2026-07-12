@@ -49,13 +49,14 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-10 h-10"
+          className="relative w-16 h-16"
         >
           <Image 
             src="/Logo.png" 
             alt="Poojaa G Logo" 
             fill
-            sizes="40px"
+            sizes="64px"
+            priority
             className="object-contain filter brightness-110"
           />
         </motion.div>

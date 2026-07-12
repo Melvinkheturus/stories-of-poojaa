@@ -112,12 +112,12 @@ const Menu: React.FC = () => {
           >
             {/* Minimalist Logo on left */}
             <div className="absolute top-10 left-10 hidden md:block">
-              <div className="relative w-10 h-10">
+              <div className="relative w-16 h-16">
                 <Image 
                   src="/Logo.png" 
                   alt="Poojaa G Logo" 
                   fill
-                  sizes="40px"
+                  sizes="64px"
                   className="object-contain filter brightness-110 opacity-60 hover:opacity-100 transition-opacity"
                 />
               </div>

@@ -82,7 +82,7 @@ const Gallery: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.6, 0.05, -0.01, 0.9] }}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.6, 0.05, 0.01, 0.9] }}
               className="group space-y-4"
             >
               {/* Image Frame Wrapper */}
