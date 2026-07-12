@@ -101,11 +101,11 @@ const WhoIAm: React.FC = () => {
       </div>
 
       {/* Part 2: Scroll Text Rise Block */}
-      <div className="w-full bg-[#050505] flex flex-col justify-center items-center py-20 px-6 md:px-16 relative z-10 border-t border-zinc-950">
+      <div className="w-full bg-[#050505] flex flex-col justify-center items-center py-12 px-6 md:px-16 relative z-10 border-t border-zinc-950">
         <div className="max-w-5xl w-full">
           <ScrollTextRise
             text={aboutText}
-            className="h-[550px] w-full rounded-xl bg-transparent"
+            className="bg-transparent"
             textClassName="font-inter font-light tracking-wide text-zinc-400 text-center leading-relaxed text-2xl md:text-4xl"
           />
         </div>
