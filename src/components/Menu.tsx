@@ -80,7 +80,7 @@ const Menu: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="pointer-events-auto relative w-12 h-12 md:w-16 md:h-16"
+          className="pointer-events-auto relative w-14 h-14 md:w-20 md:h-20"
         >
           <a 
             href="#hero" 
@@ -96,7 +96,7 @@ const Menu: React.FC = () => {
               src="/Logo.png" 
               alt="Poojaa G Logo" 
               fill
-              sizes="(max-width: 768px) 48px, 64px"
+              sizes="(max-width: 768px) 56px, 80px"
               priority
               className="object-contain filter brightness-110 opacity-80 hover:opacity-100 transition-opacity"
             />

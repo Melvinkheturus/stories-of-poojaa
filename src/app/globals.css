@@ -56,11 +56,11 @@ body {
 
 /* Typography styles */
 .font-heading {
-  @apply font-antonio;
+  @apply font-inter font-extrabold tracking-tighter;
 }
 
 .font-serif-elegant {
-  @apply font-cormorant;
+  @apply font-inter font-light italic;
 }
 
 /* Custom premium classes */
